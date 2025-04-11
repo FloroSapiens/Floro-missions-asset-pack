@@ -99,7 +99,6 @@ WaveSchedule
 		WaveSpawn //WAVE 08d: [FINAL TANK]  
 	    {
 		    TotalCount 1
-		    WaitBeforeStarting 0
 		    TotalCurrency 500
 		
 		    FirstSpawnOutput                                                                                                                                                            
@@ -111,7 +110,7 @@ WaveSchedule
 
 		    Tank
 		    {
-			    Health 25000
+			    Health 24000
 			    Speed 75
 			    Name "boss"
 			    StartingPathTrackNode "boss_path_a1"
@@ -136,7 +135,7 @@ WaveSchedule
 			TotalCount 21
 			MaxActive 21
 			SpawnCount 21
-			WaitBeforeStarting 0
+			WaitBeforeStarting 0.5
 			TotalCurrency 25
 				
 			Squad
