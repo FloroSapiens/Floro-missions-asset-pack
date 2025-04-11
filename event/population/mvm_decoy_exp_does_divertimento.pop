@@ -99,8 +99,7 @@ WaveSchedule
 		WaveSpawn //WAVE 08d: [FINAL TANK]  
 	    {
 		    TotalCount 1
-		    WaitBeforeStarting 30
-		    WaitForAllSpawned "wave08c"
+		    WaitBeforeStarting 0
 		    TotalCurrency 500
 		
 		    FirstSpawnOutput                                                                                                                                                            
@@ -630,36 +629,63 @@ WaveSchedule
 					Template T_TFBot_Medic_BigHeal
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
+					Attributes SpawnWithFullCharge
 					Name "Kritz Medic"
 					ClassIcon medic_kritz2
 					Tag bot_squad_member
+
+					ItemAttributes
+					{
+						ItemName "The Kritzkrieg"
+						"ubercharge rate bonus" 9999
+                        "uber duration bonus" 9999
+					}
+					CharacterAttributes
+					{
+						"bot medic uber health threshold" 150
+					}
 				}
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
+					Attributes SpawnWithFullCharge
 					Name "Kritz Medic"
 					ClassIcon medic_kritz2
 					Tag bot_squad_member
+
+					ItemAttributes
+					{
+						ItemName "The Kritzkrieg"
+						"ubercharge rate bonus" 9999
+                        "uber duration bonus" 9999
+					}
+					CharacterAttributes
+					{
+						"bot medic uber health threshold" 150
+					}
 				}
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
+					Attributes SpawnWithFullCharge
 					Name "Kritz Medic"
 					ClassIcon medic_kritz2
 					Tag bot_squad_member
-				}
-				TFBot
-				{
-					Template T_TFBot_Medic_BigHeal
-					Item "The Kritzkrieg"
-					Attributes AlwaysCrit
-					Name "Kritz Medic"
-					ClassIcon medic_kritz2
-					Tag bot_squad_member
+
+					ItemAttributes
+					{
+						ItemName "The Kritzkrieg"
+						"ubercharge rate bonus" 9999
+                        "uber duration bonus" 9999
+					}
+					CharacterAttributes
+					{
+						"bot medic uber health threshold" 150
+					}
 				}
 			}
 		}
