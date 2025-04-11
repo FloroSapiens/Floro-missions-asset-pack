@@ -1,7 +1,6 @@
 // credit to lobotomy and claudz for helping me with the vscript stuff in general
 // collab between floro and furuka
 // note this currently depends on popext and the current nut file (wildfrost_phrases.nut)
-//reverted to old version
 #base       robot_giant.pop
 #base       robot_standard.pop
 #base       robot_wildfrost.pop
@@ -49,17 +48,18 @@ WaveSchedule
 
     Mission
     {
-        Objective               Engineer
+        Objective               Spy
         InitialCooldown         60
         Where                   spawnbot
         BeginAtWave             4
         RunForThisManyWaves     1
         CooldownTime            25
-        DesiredCount            1
+        DesiredCount            4
 
         TFBot
         {
-            Template    T_TFBot_Engineer_Sentry_Teleporter
+            Class Spy
+            Skill Expert
         }
     }
 
@@ -825,40 +825,39 @@ WaveSchedule
                     "
             }
         }
+
+        WaveSpawn
+        {
+            Where               spawnbot
+            WaitForAllDead      Phase1
+            Name                dummysound1
+            Support             Limited
+
+            FirstSpawnOutput
+            {
+                Target      wave_start_relay
+                Action      RunScriptCode
+                Param       "
+	    				    ClientPrint(null, 3, `\x079C1010Bam and Boozle Appears!`)
+     
+                        "
+            }
+        }
     }
 
-    WaveSpawn
+    Wave
     {
-        Where               spawnbot
-        WaitForAllDead      Phase1
-        Name                dummysound1
-        Support             Limited
+        StartWaveOutput
+        {
+            Target      wave_start_relay
+            Action      Trigger
+        }
 
-        FirstSpawnOutput
+        Initwaveoutput
         {
             Target      wave_start_relay
             Action      RunScriptCode
             Param       "
-	    				ClientPrint(null, 3, `\x079C1010Bam and Boozle Appears!`)
-     
-                    "
-        }
-    }
-}
-
-Wave
-{
-    StartWaveOutput
-    {
-        Target      wave_start_relay
-        Action      Trigger
-    }
-
-    Initwaveoutput
-    {
-        Target      wave_start_relay
-        Action      RunScriptCode
-        Param       "
             DoEntFire(`relay_snow_light_start`, `Trigger`, `0`, 0, null, null);   
  			IncludeScript(`popextensions_main`, getroottable())
 			IncludeScript(`wildfrost_phases`, getroottable())           
@@ -871,165 +870,163 @@ Wave
             frequency = 20
             })
             "
-    }
-
-    DoneOutput
-    {
-        Target      wave_finished_relay
-        Action      trigger
-    }
-    WaitWhenDone    65
-    Checkpoint      Yes
-
-    StartWaveOutput
-    {
-        Target      bombpath_arrows_clear_relay
-        Action      Trigger
-    }
-
-    DoneOutput
-    {
-        Target      bombpath_wavefinished
-        Action      Trigger
-    }
-
-    WaveSpawn
-    {
-        Where                   spawnbot_flank
-        Name                    w3-1
-        TotalCount              40
-        MaxActive               18
-        SpawnCount              8
-        WaitBeforeStarting      0
-        WaitBetweenSpawns       6
-        TotalCurrency           50
-
-        Squad
-        {
-            TFBot
-            {
-                Template    T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
-            }
-
-            TFBot
-            {
-                Template    T_TFBot_Medic_BigHeal
-            }
         }
-    }
 
-    WaveSpawn
-    {
-        Where                   spawnbot
-        Name                    w3-1
-        TotalCount              2
-        MaxActive               2
-        SpawnCount              1
-        WaitBeforeStarting      0
-        WaitBetweenSpawns       20
-        TotalCurrency           50
-
-        TFBot
+        DoneOutput
         {
-            Template    T_TFBot_Giant_Soldier_Extended_Battalion
+            Target      wave_finished_relay
+            Action      trigger
         }
-    }
+        WaitWhenDone    65
+        Checkpoint      Yes
 
-    WaveSpawn
-    {
-        Where                   spawnbot
-        Name                    w3-2
-        WaitForAllSpawned       w3-1
-        TotalCount              80
-        MaxActive               14
-        SpawnCount              1
-        WaitBeforeStarting      5
-        WaitBetweenSpawns       1
-        TotalCurrency           100
-
-        RandomChoice
+        StartWaveOutput
         {
-            TFBot
-            {
-                Class           Pyro
-                Skill           Easy
-                Attributes      AlwaysFireWeapon
-            }
-
-            TFBot
-            {
-                Template    T_TFBot_Pyro_Flaregun
-            }
-        }
-    }
-
-    WaveSpawn
-    {
-        Where                   spawnbot
-        Name                    w3-2
-        WaitForAllDead          w3-1
-        TotalCount              2
-        MaxActive               2
-        SpawnCount              1
-        WaitBeforeStarting      10
-        WaitBetweenSpawns       20
-        TotalCurrency           200
-
-        TFBot
-        {
-            Template    T_TFBot_Heavyweapons_Heater
-        }
-    }
-
-    WaveSpawn
-    {
-        Name                    Tank
-        WaitBeforeStarting      3
-        WaitForAllDead          w3-1
-        TotalCount              1
-        TotalCurrency           300
-
-        FirstSpawnOutput
-        {
-            Target      boss_spawn_relay
+            Target      bombpath_arrows_clear_relay
             Action      Trigger
         }
 
-        Tank
+        DoneOutput
         {
-            Health                      25000
-            Speed                       75
-            Name                        TankBoss
-            StartingPathTrackNode       boss_path_0_1
+            Target      bombpath_wavefinished
+            Action      Trigger
+        }
 
-            OnKilledOutput
-            {
-                Target      boss_dead_relay
-                Action      Trigger
-            }
+        WaveSpawn
+        {
+            Where                   spawnbot_flank
+            Name                    punchie3
+            TotalCount              40
+            MaxActive               18
+            SpawnCount              8
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       6
+            TotalCurrency           50
 
-            OnBombDroppedOutput
+            Squad
             {
-                Target      boss_deploy_relay
-                Action      Trigger
+                TFBot
+                {
+                    Template    T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+                }
+
+                TFBot
+                {
+                    Template    T_TFBot_Medic_BigHeal
+                }
             }
         }
-    }
-}
 
-Wave
-{
-    StartWaveOutput
-    {
-        Target      wave_start_relay
-        Action      Trigger
+        WaveSpawn
+        {
+            Where                   spawnbot
+            TotalCount              2
+            MaxActive               2
+            SpawnCount              1
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       20
+            TotalCurrency           50
+
+            TFBot
+            {
+                Template    T_TFBot_Giant_Soldier_Extended_Battalion
+            }
+        }
+
+        WaveSpawn
+        {
+            Where                   spawnbot
+            Name                    pyros3
+            WaitForAllDead          punchie3
+            TotalCount              80
+            MaxActive               14
+            SpawnCount              1
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       1
+            TotalCurrency           100
+
+            RandomChoice
+            {
+                TFBot
+                {
+                    Class           Pyro
+                    Skill           Easy
+                    Attributes      AlwaysFireWeapon
+                }
+
+                TFBot
+                {
+                    Template    T_TFBot_Pyro_Flaregun
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Where                   spawnbot
+            WaitForAllDead          punchie3
+            TotalCount              2
+            MaxActive               1
+            SpawnCount              1
+            WaitBeforeStarting      20
+            WaitBetweenSpawns       0
+            TotalCurrency           200
+
+            TFBot
+            {
+                Template    T_TFBot_Heavyweapons_Heater
+            }
+        }
+
+        WaveSpawn
+        {
+            Name                    Tank
+            WaitBeforeStarting      3
+            WaitForAllDead          w3-1
+            TotalCount              1
+            TotalCurrency           300
+
+            FirstSpawnOutput
+            {
+                Target      boss_spawn_relay
+                Action      Trigger
+            }
+
+            Tank
+            {
+                Health                      25000
+                Speed                       75
+                Name                        TankBoss
+                StartingPathTrackNode       boss_path_0_1
+
+                OnKilledOutput
+                {
+                    Target      boss_dead_relay
+                    Action      Trigger
+                }
+
+                OnBombDroppedOutput
+                {
+                    Target      boss_deploy_relay
+                    Action      Trigger
+                }
+            }
+        }   
     }
 
-    Initwaveoutput
+    Wave
     {
-        Target      wave_start_relay
-        Action      RunScriptCode
-        Param       "
+        StartWaveOutput
+        {
+            Target      wave_start_relay
+            Action      Trigger
+        }
+
+        Initwaveoutput
+        {
+            Target      wave_start_relay
+            Action      RunScriptCode
+            Param       "
             DoEntFire(`relay_snow_light_start`, `Trigger`, `0`, 0, null, null);       
             SpawnEntityFromTable(`env_shake`,{
             targetname = `shake`
@@ -1040,145 +1037,128 @@ Wave
             frequency = 20
             })
             "
-    }
+        }   
 
-    DoneOutput
-    {
-        Target      wave_finished_relay
-        Action      trigger
-    }
-    WaitWhenDone    65
-    Checkpoint      Yes
-
-    WaveSpawn
-    {
-        Where                   spawnbot_flank
-        Name                    4-1a
-        TotalCount              3
-        MaxActive               2
-        SpawnCount              1
-        WaitBeforeStarting      0.5
-        WaitBetweenSpawns       20
-        TotalCurrency           100
-
-        TFBot
+        DoneOutput
         {
-            Template    T_TFBot_Giant_Soldier_Spammer_Reload
+            Target      wave_finished_relay
+         Action      trigger
         }
-    }
+        WaitWhenDone    65
+        Checkpoint      Yes
 
-    WaveSpawn
-    {
-        Where                   spawnbot
-        Name                    4-1
-        TotalCount              56
-        MaxActive               14
-        SpawnCount              6
-        WaitBeforeStarting      0
-        WaitBetweenSpawns       0
-        TotalCurrency           100
-
-        RandomChoice
+        WaveSpawn
         {
+            Where                   spawnbot_flank
+            Name                    mannhattan4
+            TotalCount              3
+            MaxActive               2
+            SpawnCount              1
+            WaitBeforeStarting      0.5
+            WaitBetweenSpawns       20
+            TotalCurrency           100
+
             TFBot
             {
-                Template    T_TFBot_Soldier_Extended_Concheror
+                Template    T_TFBot_Giant_Soldier_Spammer_Reload
             }
+        }
 
-            TFBot
+        WaveSpawn
+        {
+            Where                   spawnbot
+            Name                    conch4
+            TotalCount              64
+            MaxActive               16
+            SpawnCount              6
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       0
+            TotalCurrency           100
+
+            RandomChoice
             {
-                Name                    "Fast Miner Soldier"
-                Class                   Soldier
-                Skill                   Expert
-                ClassIcon               soldier_conch_pickaxe
-                WeaponRestrictions      MeleeOnly
-                Item                    "The Escape Plan"
-                Attributes              SpawnWithFullCharge
-                Item                    "The Concheror"
-
-                ItemAttributes
+                TFBot
                 {
-                    ItemName                    "The Escape Plan"
-                    "critboost on kill"         5
-                    "self mark for death"       0
+                    Template    T_TFBot_Soldier_Extended_Concheror
                 }
 
-                CharacterAttributes
-                {
-                    "increase buff duration"    9.0
+                TFBot
+                {   
+                    Name                    "Fast Miner Soldier"
+                    Class                   Soldier
+                    Skill                   Expert
+                    ClassIcon               soldier_conch_pickaxe
+                    WeaponRestrictions      MeleeOnly
+                    Item                    "The Escape Plan"
+                    Attributes              SpawnWithFullCharge
+                    Item                    "The Concheror"
+
+                    ItemAttributes
+                    {
+                        ItemName                    "The Escape Plan"
+                        "critboost on kill"         5
+                        "self mark for death"       0
+                    }
+
+                    CharacterAttributes
+                    {
+                        "increase buff duration"    9.0
+                    }
                 }
             }
         }
-    }
 
-    WaveSpawn
-    {
-        Where                   spawnbot_flank
-        Name                    4-1
-        WaitForAllSpawned       4-1a
-        TotalCount              6
-        MaxActive               6
-        SpawnCount              3
-        WaitBeforeStarting      0
-        WaitBetweenSpawns       30
-        TotalCurrency           400
-
-        Squad
+        WaveSpawn
         {
-            TFBot
-            {
-                Template        T_TFBot_Giant_Pyro
-                Attributes      AlwaysFireWeapon
-                Skill           Easy
-            }
+            Where                   spawnbot_flank
+            Name                    gpyros4
+            WaitForAllSpawned       mannhattan4
+            TotalCount              6
+            MaxActive               6
+            SpawnCount              3
+            WaitBeforeStarting      10
+            WaitBetweenSpawns       30
+            TotalCurrency           400
 
-            TFBot
+            Squad
             {
-                Template    T_TFBot_Giant_Pyro
-            }
+                TFBot
+                {
+                    Template        T_TFBot_Giant_Pyro
+                    Attributes      AlwaysFireWeapon
+                    Skill           Easy
+                }
 
-            TFBot
-            {
-                Template    T_TFBot_Giant_Pyro
+                TFBot
+                {
+                    Template    T_TFBot_Giant_Pyro
+                }
+
+                TFBot
+                {
+                    Template    T_TFBot_Giant_Pyro
+                }
             }
         }
-    }
 
-    WaveSpawn
-    {
-        Where                   spawnbot
-        WaitForAllSpawned       4-1
-        TotalCount              100
-        MaxActive               15
-        SpawnCount              1
-        WaitBeforeStarting      0
-        WaitBetweenSpawns       0
-        TotalCurrency           100
-        Support                 1
-
-        RandomChoice
+        WaveSpawn
         {
-            TFBot
-            {
-                Class       Demoman
-                Skill       Expert
-            }
+            Where                   spawnbot
+            WaitForAllSpawned       conch4
+            TotalCount              100
+            MaxActive               12
+            SpawnCount              2
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       2
+            TotalCurrency           100
+            Support                 1
 
-            TFBot
+            RandomChoice
             {
-                Class       Demoman
-                Skill       Expert
-            }
-
-            TFBot
-            {
-                Class       Pyro
-                Skill       Expert
-            }
-
-            TFBot
-            {
-                Template    T_TFBot_Pyro_Flaregun
+                TFBot
+                {
+                    Template    T_TFBot_Pyro_Flaregun
+                }
             }
         }
     }
