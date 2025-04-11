@@ -511,10 +511,10 @@ WaveSchedule
 			Name wave03support_scouthorde
 		    Where spawnbot
 		    TotalCount 100
-		    MaxActive 12
+		    MaxActive 7
 		    SpawnCount 4
 		    WaitBeforeStarting 0
-		    WaitBetweenSpawns 3
+		    WaitBetweenSpawns 4
 		    TotalCurrency 200
 		
 		    Support 1
@@ -525,21 +525,10 @@ WaveSchedule
 			    {
 				    Class Scout
 				    Skill Easy
-				    WeaponRestrictions MeleeOnly
 			    }
 			    TFBot
 			    {
-				    Class Scout
-				    Skill Easy
-				    Tag nav_prefer_flank_right
-				    BehaviorModifiers push
-			    }
-			    TFBot
-			    {
-				    Class Scout
-				    Skill Easy
-				    Tag nav_prefer_flank_left
-				    BehaviorModifiers push
+				    Template T_TFBot_Scout_Sandman_FastCharge
 			    }
 		    }
 	    }
@@ -549,13 +538,39 @@ WaveSchedule
 			Where spawnbot
 			TotalCount 2
 			MaxActive 2
-			SpawnCount 2
+			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 15
+			TotalCurrency 100
 
 			TFBot
 			{
 				Template T_TFBot_Giant_Soldier_Crit
+			}
+		}
+		WaveSpawn
+		{
+			Name wave03a_conchsoldiers
+			Where spawnbot
+			TotalCount 30
+			MaxActive 9
+			SpawnCount 6
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 5
+			TotalCurrency 200
+
+			RandomChoice
+			{
+				TFBot
+				{
+					Template T_TFBot_Soldier_Extended_Concheror
+					Skill Easy
+				}
+				TFBot
+				{
+					Template T_TFBot_Soldier_Extended_Concheror
+					Skill Hard
+				}
 			}
 		}
 		WaveSpawn
@@ -565,9 +580,10 @@ WaveSchedule
 			Where spawnbot
 			TotalCount 2
 			MaxActive 2
-			SpawnCount 2
+			SpawnCount 1
 			WaitBeforeStarting 15
 			WaitBetweenSpawns 15
+			TotalCurrency 100
 
 			TFBot
 			{
@@ -579,11 +595,12 @@ WaveSchedule
 			Name wave03b_shortstops
 			WaitForAllSpawned wave03a_crocketpart1
 			Where spawnbot_left
-			TotalCount 16
-			MaxActive 8
+			TotalCount 12
+			MaxActive 6
 			SpawnCount 4
 			WaitBeforeStarting 15
 			WaitBetweenSpawns 15
+			TotalCurrency 120
 
 			TFBot
 			{
@@ -598,8 +615,9 @@ WaveSchedule
 			TotalCount 5
 			MaxActive 5
 			Spawncount 5
-			WaitBeforeStarting 15
+			WaitBeforeStarting 10
 			WaitBetweenSpawns 0
+			TotalCurrency 180
 
 			Squad
 			{
@@ -613,6 +631,7 @@ WaveSchedule
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
 					Name "Kritz Medic"
+					ClassIcon medic_kritz2
 					Tag bot_squad_member
 				}
 				TFBot
@@ -621,6 +640,7 @@ WaveSchedule
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
 					Name "Kritz Medic"
+					ClassIcon medic_kritz2
 					Tag bot_squad_member
 				}
 				TFBot
@@ -629,6 +649,7 @@ WaveSchedule
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
 					Name "Kritz Medic"
+					ClassIcon medic_kritz2
 					Tag bot_squad_member
 				}
 				TFBot
@@ -637,24 +658,9 @@ WaveSchedule
 					Item "The Kritzkrieg"
 					Attributes AlwaysCrit
 					Name "Kritz Medic"
+					ClassIcon medic_kritz2
 					Tag bot_squad_member
 				}
-			}
-		}
-		WaveSpawn
-		{
-			Name wave03c_sandman
-			WaitForAllSpawned wave03b_crocketpart2
-			Where spawnbot
-			TotalCount 16
-			MaxActive 12
-			SpawnCount 8
-			WaitBeforeStarting 15
-			WaitBetweenSpawns 8
-
-			TFBot
-			{
-				Template T_TFBot_Scout_Sandman_FastCharge
 			}
 		}
     }
