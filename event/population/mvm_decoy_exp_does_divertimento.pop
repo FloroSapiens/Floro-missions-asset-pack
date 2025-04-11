@@ -231,7 +231,7 @@ WaveSchedule
         WaveSpawn
 		{
 			Name "82-2"
-            WaitForAllSpawned "82"
+            WaitForAllSpawned "81"
 			Where spawnbot
 			TotalCount 2
 			MaxActive 2
