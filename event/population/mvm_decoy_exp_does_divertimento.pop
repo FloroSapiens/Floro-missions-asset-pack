@@ -641,7 +641,7 @@ WaveSchedule
 					}
 					CharacterAttributes
 					{
-						"bot medic uber health threshold" 150
+						"bot medic uber health threshold" 151
 					}
 				}
 				TFBot
@@ -662,7 +662,7 @@ WaveSchedule
 					}
 					CharacterAttributes
 					{
-						"bot medic uber health threshold" 150
+						"bot medic uber health threshold" 151
 					}
 				}
 				TFBot
@@ -683,7 +683,7 @@ WaveSchedule
 					}
 					CharacterAttributes
 					{
-						"bot medic uber health threshold" 150
+						"bot medic uber health threshold" 151
 					}
 				}
 				TFBot
@@ -704,7 +704,7 @@ WaveSchedule
 					}
 					CharacterAttributes
 					{
-						"bot medic uber health threshold" 150
+						"bot medic uber health threshold" 151
 					}
 				}
 			}
