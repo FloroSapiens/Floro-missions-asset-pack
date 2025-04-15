@@ -732,7 +732,7 @@ Wave // WAVE 4
 			SpawnCount 2
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 2
-			TotalCurrency 150
+			TotalCurrency 75
 			
 			TFBot
 			{
@@ -759,7 +759,7 @@ Wave // WAVE 4
 				TFBot
 				{
 					Class Pyro
-					Skill Normal
+					Skill Hard
 				}
 				TFBot
 				{
@@ -795,9 +795,8 @@ Wave // WAVE 4
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
-			WaitBeforeStarting 0
-			TotalCurrency 350
 			WaitBeforeStarting 10
+			TotalCurrency 350
 
 			FirstSpawnWarningSound "vo/mvm/mght/heavy_mvm_m_specialweapon01.mp3"
 
@@ -806,7 +805,7 @@ Wave // WAVE 4
 				Template T_TFBot_Giant_Heavyweapons
 				ClassIcon heavy_heater
 				Name "The Volatile Scourge"
-				Health 25000
+				Health 30000
 				Scale 1.9
 				Skill Expert
 				Attributes UseBossHealthBar
@@ -833,6 +832,25 @@ Wave // WAVE 4
 			TFBot
 			{
 				Template T_TFBot_Pyro_Flaregun
+				Skill Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name wave4preboss_iamspeed2
+			Name wave4preboss_sentrygoingup
+			Where spawnbot
+			Support 1
+			TotalCount 30
+			MaxActive 5
+			SpawnCount 2
+			WaitBeforeStarting 2
+			WaitBetweenSpawns 2
+			TotalCurrency 75
+			
+			TFBot
+			{
+				Class Scout
 				Skill Normal
 			}
 		}
