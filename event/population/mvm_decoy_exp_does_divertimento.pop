@@ -723,8 +723,6 @@ Wave // WAVE 4
 			Action trigger
 		}
 
-		Sound "mvm/giant_heavy/giant_heavy_entrance.wav"
-
 		WaveSpawn
 		{
 			Name wave4a_bigfuckingheavy
