@@ -41,8 +41,7 @@ WaveSchedule
 			Skill Hard
 	    }
     }
-
-     Mission // Spy - wave 3
+	Mission // Spy - wave 3
 	{
 		Objective Sniper
 
@@ -508,12 +507,12 @@ WaveSchedule
 	    {
 			Name wave03support_scouthorde
 		    Where spawnbot
-		    TotalCount 100
+		    TotalCount 50
 		    MaxActive 7
 		    SpawnCount 4
 		    WaitBeforeStarting 0
 		    WaitBetweenSpawns 4
-		    TotalCurrency 200
+		    TotalCurrency 50
 		
 		    Support 1
 
@@ -539,7 +538,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 15
-			TotalCurrency 100
+			TotalCurrency 50
 
 			TFBot
 			{
@@ -555,7 +554,7 @@ WaveSchedule
 			SpawnCount 6
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 5
-			TotalCurrency 200
+			TotalCurrency 50
 
 			RandomChoice
 			{
@@ -581,7 +580,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 15
 			WaitBetweenSpawns 15
-			TotalCurrency 100
+			TotalCurrency 50
 
 			TFBot
 			{
@@ -598,7 +597,7 @@ WaveSchedule
 			SpawnCount 4
 			WaitBeforeStarting 15
 			WaitBetweenSpawns 15
-			TotalCurrency 120
+			TotalCurrency 50
 
 			TFBot
 			{
@@ -615,7 +614,7 @@ WaveSchedule
 			Spawncount 5
 			WaitBeforeStarting 10
 			WaitBetweenSpawns 0
-			TotalCurrency 180
+			TotalCurrency 150
 
 			Squad
 			{
@@ -725,14 +724,80 @@ Wave // WAVE 4
 
 		WaveSpawn
 		{
-			Name wave4a_bigfuckingheavy
+			Name wave4preboss_iamspeed
+			Where spawnbot
+			Support 1
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 2
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 2
+			TotalCurrency 150
+			
+			TFBot
+			{
+				Class Scout
+				Skill Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name wave4preboss_inferno
+			Where spawnbot_left
+			Where spawnbot_right
+			Randomspawn 1
+			Support Limited
+			TotalCount 16
+			MaxActive 16
+			SpawnCount 8
+			WaitBeforeStarting 12
+			WaitBetweenSpawns 8
+			TotalCurrency 200
+
+			Squad
+			{
+				TFBot
+				{
+					Class Pyro
+					Skill Normal
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic_QuickUber
+					Tag bot_squad_member
+				}
+			}
+		}
+		WaveSpawn
+		{	
+			Name wave4preboss_sentrygoingup
+			WaitForAllSpawned wave4preboss_inferno			
+			Where spawnbot_invasion
+			TotalCount 10
+			MaxActive 10
+			SpawnCount 2
+			WaitBeforeStarting 6
+			WaitBetweenSpawns 2
+			
+			Support Limited
+			
+			TFBot
+			{
+				Template T_TFBot_Engineer_Sentry_Tele_Battle
+				TeleportWhere spawnbot_invasion
+			}
+		}
+		WaveSpawn
+		{
+			Name wave4boss_bigfuckingheavy
+			WaitForAllSpawned wave4preboss_inferno
 			Where spawnbot
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
 			WaitBeforeStarting 0
-			TotalCurrency 550
-			WaitBeforeStarting 4
+			TotalCurrency 350
+			WaitBeforeStarting 10
 
 			FirstSpawnWarningSound "vo/mvm/mght/heavy_mvm_m_specialweapon01.mp3"
 
@@ -754,57 +819,16 @@ Wave // WAVE 4
 		}
 		WaveSpawn
 		{
-			Name wave4supporta_iamspeed
-			Where spawnbot_left
-			Where spawnbot_right
+			Name wave4boss_support_flaringdeeznu
+			WaitForAllSpawned wave4preboss_inferno
+			Where spawnbot_invasion
 			Support 1
 			RandomSpawn 1
 			TotalCount 30
-			MaxActive 6
-			SpawnCount 3
-			WaitBeforeStarting 2
-			WaitBetweenSpawns 4
-			TotalCurrency 150
-			
-			TFBot
-			{
-				Class Scout
-				Skill Normal
-			}
-		}
-		WaveSpawn
-		{
-			Name wave4supportb_robbinthishood
-			Where spawnbot_left
-			Where spawnbot_right
-			Support 1
-			RandomSpawn 1
-			TotalCount 30
-			MaxActive 6
-			SpawnCount 3
-			WaitBeforeStarting 4
-			WaitBetweenSpawns 4
-			TotalCurrency 150
-
-			TFBot
-			{
-				Template T_TFBot_Sniper_Huntsman
-				Skill Normal
-			}
-		}
-		WaveSpawn
-		{
-			Name wave4supportc_flaringdeeznu
-			Where spawnbot_left
-			Where spawnbot_right
-			Support 1
-			RandomSpawn 1
-			TotalCount 30
-			MaxActive 6
-			SpawnCount 3
+			MaxActive 8
+			SpawnCount 2
 			WaitBeforeStarting 6
-			WaitBetweenSpawns 4
-			TotalCurrency 150
+			WaitBetweenSpawns 2
 
 			TFBot
 			{
