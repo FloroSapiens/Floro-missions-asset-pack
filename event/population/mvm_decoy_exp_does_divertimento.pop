@@ -723,6 +723,8 @@ Wave // WAVE 4
 			Action trigger
 		}
 
+		Sound "mvm/giant_heavy/giant_heavy_entrance.wav"
+
 		WaveSpawn
 		{
 			Name wave4a_bigfuckingheavy
@@ -731,14 +733,26 @@ Wave // WAVE 4
 			MaxActive 1
 			SpawnCount 1
 			WaitBeforeStarting 0
-			TotalCurrency 500
+			TotalCurrency 550
+
+			FirstSpawnWarningSound "vo/mvm/mght/heavy_mvm_m_specialweapon01.mp3"
 
 			TFBot
 			{
-				Class Heavy
+				Template T_TFBot_Giant_Heavyweapons
+				Name "The Titanium Gauntlet"
+				Health 25000
+				Scale 1.9
 				Skill Expert
 				Attributes UseBossHealthBar
-				Health 25000
+				// WeaponRestrictions PrimaryOnly
+				Item "The Family Business"
+				Item "Fists of Steel"
+
+				Item "Goalkeeper"
+				Item "Siberian Tigerstripe"
+				Item "The Borscht Belt"
+				Item "Steel-Toed Stompers"
 			}
 		}
 		WaveSpawn
