@@ -734,23 +734,23 @@ Wave // WAVE 4
 			SpawnCount 1
 			WaitBeforeStarting 0
 			TotalCurrency 550
+			WaitBeforeStarting 4
 
 			FirstSpawnWarningSound "vo/mvm/mght/heavy_mvm_m_specialweapon01.mp3"
 
 			TFBot
 			{
 				Template T_TFBot_Giant_Heavyweapons
-				Name "The Titanium Gauntlet"
+				ClassIcon heavy_heater
+				Name "The Volatile Scourge"
 				Health 25000
 				Scale 1.9
 				Skill Expert
 				Attributes UseBossHealthBar
-				// WeaponRestrictions PrimaryOnly
-				Item "The Family Business"
-				Item "Fists of Steel"
+				Item "The Huo Long Heatmaker"
 
 				Item "Goalkeeper"
-				Item "Siberian Tigerstripe"
+				Item "Bone-Cut Belt"
 				Item "The Borscht Belt"
 				Item "Steel-Toed Stompers"
 			}
