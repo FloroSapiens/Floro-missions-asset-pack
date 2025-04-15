@@ -710,5 +710,97 @@ WaveSchedule
 			}
 		}
     }
+Wave // WAVE 4
+    {
+	    StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+	    }
+	    DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+
+		WaveSpawn
+		{
+			Name wave4a_bigfuckingheavy
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			TotalCurrency 500
+
+			TFBot
+			{
+				Class Heavy
+				Skill Expert
+				Attributes UseBossHealthBar
+				Health 25000
+			}
+		}
+		WaveSpawn
+		{
+			Name wave4supporta_iamspeed
+			Where spawnbot_left
+			Where spawnbot_right
+			Support 1
+			RandomSpawn 1
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 2
+			WaitBetweenSpawns 4
+			TotalCurrency 150
+			
+			TFBot
+			{
+				Class Scout
+				Skill Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name wave4supportb_robbinthishood
+			Where spawnbot_left
+			Where spawnbot_right
+			Support 1
+			RandomSpawn 1
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 4
+			WaitBetweenSpawns 4
+			TotalCurrency 150
+
+			TFBot
+			{
+				Template T_TFBot_Sniper_Huntsman
+				Skill Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name wave4supportc_flaringdeeznu
+			Where spawnbot_left
+			Where spawnbot_right
+			Support 1
+			RandomSpawn 1
+			TotalCount 30
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 6
+			WaitBetweenSpawns 4
+			TotalCurrency 150
+
+			TFBot
+			{
+				Template T_TFBot_Pyro_Flaregun
+				Skill Normal
+			}
+		}
+	}
 }
 	
