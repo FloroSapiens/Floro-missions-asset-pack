@@ -76,11 +76,31 @@ WaveSchedule
 		Checkpoint Yes
         WaveSpawn
 		{
-			Name "82"
+			Name "821"
             WaitForAllSpawned "81"
 			Where spawnbot
-			TotalCount 40
-			MaxActive 20
+			TotalCount 15
+			MaxActive 15
+			SpawnCount 15
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 0
+			TotalCurrency 25
+				
+			TFBot
+			{
+				Template T_TFBot_Scout_Bonk
+                Name "The Firing Squad"
+                Skill Easy
+                WeaponRestrictions PrimaryOnly
+			}
+        }
+		WaveSpawn
+		{
+			Name "82"
+            WaitForAllSpawned "821"
+			Where spawnbot
+			TotalCount 25
+			MaxActive 25
 			SpawnCount 15
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
@@ -98,7 +118,7 @@ WaveSchedule
 		WaveSpawn //WAVE 08d: [FINAL TANK]  
 	    {
 		    TotalCount 1
-		    TotalCurrency 500
+		    TotalCurrency 475
 		
 		    FirstSpawnOutput                                                                                                                                                            
 		
@@ -228,8 +248,8 @@ WaveSchedule
 
         WaveSpawn
 		{
-			Name "82-2"
-            WaitForAllSpawned "81"
+			Name "82"
+            WaitForAllSpawned "821"
 			Where spawnbot
 			TotalCount 2
 			MaxActive 2
