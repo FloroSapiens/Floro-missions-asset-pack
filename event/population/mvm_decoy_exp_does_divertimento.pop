@@ -32,7 +32,7 @@ WaveSchedule
 		Where spawnbot_mission_sniper
 		BeginAtWave 2
 		RunForThisManyWaves 1
-		CooldownTime 15
+		CooldownTime 5
 		DesiredCount 10
 
 		TFBot
@@ -254,7 +254,7 @@ WaveSchedule
 			TotalCount 2
 			MaxActive 2
 			SpawnCount 1
-			WaitBeforeStarting 10
+			WaitBeforeStarting 0
 			WaitBetweenSpawns 12.5
 			TotalCurrency 25
 				
@@ -470,7 +470,7 @@ WaveSchedule
 		{
 			WaitForAllDead "heavies7"
 			Where spawnbot
-			TotalCount 6
+			TotalCount 5
 			MaxActive 1
 			SpawnCount 1
 			WaitBeforeStarting 0
@@ -491,7 +491,7 @@ WaveSchedule
 			MaxActive 2
 			SpawnCount 2
 			WaitBeforeStarting 10
-            WaitBetweenSpawns 25
+            WaitBetweenSpawns 10
 			TotalCurrency 50
 
             Support 1
