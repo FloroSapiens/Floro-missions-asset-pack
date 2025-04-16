@@ -43,7 +43,7 @@ WaveSchedule
     }
 	Mission // Spy - wave 3
 	{
-		Objective Sniper
+		Objective Spy
 
 		InitialCooldown 10
 		Where spawnbot
