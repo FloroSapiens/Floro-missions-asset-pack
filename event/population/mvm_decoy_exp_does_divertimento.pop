@@ -55,7 +55,24 @@ WaveSchedule
 		TFBot
 		{
 			Class Spy
-            Skill Easy
+            Skill Expert
+	    }
+    }
+	Mission // Spy - wave 5
+	{
+		Objective Spy
+
+		InitialCooldown 10
+		Where spawnbot
+		BeginAtWave 5
+		RunForThisManyWaves 1
+		CooldownTime 10
+		DesiredCount 2
+
+		TFBot
+		{
+			Class Spy
+            Skill Expert
 	    }
     }
 
@@ -871,6 +888,139 @@ Wave // WAVE 4
 			TFBot
 			{
 				Class Scout
+				Skill Normal
+			}
+		}
+	}
+	Wave // WAVE 5
+	{
+		StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+	    }
+	    DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+
+		WaveSpawn
+		{
+			Name wave5a_thegiantbait
+			Where spawnbot
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 4
+			WaitBeforeStarting 0
+			TotalCurrency 200
+
+			Squad
+			{
+				TFBot
+				{
+					Template T_TFBot_Giant_Soldier_Extended_Buff_Banner
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic
+				}
+				TFBot
+				{
+					Template T_TFBot_Medic
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5support_dabat
+			Where spawnbot
+			Support 1
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 2
+			WaitBeforeStarting 2
+			WaitBetweenSpawns 2
+
+			TFBot
+			{
+				Template T_TFBot_Scout_Melee
+				Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5a_thehook
+			Where spawnbot_left
+			Where spawnbot_right
+			RandomSpawn 1
+			TotalCount 16
+			MaxActive 16
+			SpawnCount 1
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 0.5
+			TotalCurrency 80
+
+			TFBot
+			{
+				Class Heavy
+				Skill Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5b_additionaltrolling
+			WaitForAllSpawned wave5a_thehook
+			Where spawnbot
+			TotalCount 8
+			MaxActive 4
+			SpawnCount 2
+			WaitBeforeStarting 6
+			WaitBetweenSpawns 6
+			TotalCurrency 160
+
+			TFBot
+			{
+				Template T_TFBot_Demoman_Samurai
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5b_them
+			WaitForAllSpawned wave5a_thehook
+			Where spawnbot
+			TotalCount 4
+			MaxActive 2
+			SpawnCount 1
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 6
+			TotalCurrency 200
+
+			TFBot
+			{
+				Template T_TFBot_Giant_Pyro
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5b_shotgunners
+			WaitForAllSpawned wave5a_thehook
+			Where spawnbot_invasion
+			Support 1
+			TotalCount 30
+			MaxActive 4
+			SpawnCount 2
+			WaitBeforeStarting 6
+			WaitBetweenSpawns 2
+			TotalCurrency 60
+
+			TFBot
+			{
+				Template T_TFBot_Heavyweapons_Shotgun
 				Skill Normal
 			}
 		}
