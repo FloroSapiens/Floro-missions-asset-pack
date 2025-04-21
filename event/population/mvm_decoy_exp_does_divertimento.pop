@@ -976,7 +976,7 @@ Wave // WAVE 4
 			Name wave5b_additionaltrolling
 			WaitForAllSpawned wave5a_thehook
 			Where spawnbot
-			TotalCount 8
+			TotalCount 16
 			MaxActive 4
 			SpawnCount 2
 			WaitBeforeStarting 6
