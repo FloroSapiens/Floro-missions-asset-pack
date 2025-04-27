@@ -2062,4 +2062,196 @@ WaveSchedule
             }
         }
     }
+Wave
+    {
+        WaveSpawn
+        {
+            Name                "heavies7"
+             Where               spawnbot
+            WaitBeforeStarting   0
+            TotalCount           30
+            MaxActive            12
+            SpawnCount           3
+            TotalCurrency        100
+
+            Squad
+            {
+                TFBot
+                {
+                    Class           Heavyweapons
+                    Skill           Easy              
+                }
+
+                TFBot
+                {
+                    Template        T_TFBot_Medic
+                }
+                TFBot
+                {
+                    Template        T_TFBot_Medic
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name                    "soldiers7"
+            Where                   spawnbot_flank
+            TotalCount              12
+            MaxActive               6
+            SpawnCount              6
+            WaitBeforeStarting      12
+            WaitBetweenSpawns       12
+            TotalCurrency           50
+
+            TFBot
+            {
+                Template            T_TFBot_Soldier_Extended_Battalion
+            }
+        }
+
+        WaveSpawn
+        {
+            WaitForAllDead          "soldiers7"
+            Name                    "box7"
+            Where                   spawnbot
+            TotalCount              6
+            MaxActive               6
+            SpawnCount              2
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       10
+            TotalCurrency           150
+
+            TFBot
+            {
+                Template            T_TFBot_Giant_Soldier_RocketShotgun
+            }
+        }
+
+        WaveSpawn
+        {
+            WaitForAllSpawned       "heavies7"
+            Name                    "box7"
+            Where                   spawnbot_flank
+            TotalCount              45
+            MaxActive               15
+            SpawnCount              15
+            WaitBeforeStarting      0
+            WaitBetweenSpawns       0
+            TotalCurrency           200
+
+            TFBot
+            {
+                Class               Heavyweapons
+                Skill               Easy
+            }
+        }
+
+        WaveSpawn
+		{					
+			Where                   spawnbot
+            WaitForAllSpawned       "box7"
+			TotalCount              12
+			MaxActive               12
+			SpawnCount              4
+			WaitBeforeStarting      10
+			WaitBetweenSpawns       5
+			TotalCurrency           100
+			
+			TFBot
+			{
+				Template            T_TFBot_Engineer_Sentry_Tele_Battle
+				TeleportWhere       spawnbot_invasion
+			}
+		}
+
+        WaveSpawn
+		{					
+			Where                   spawnbot
+            Name                    "beforeboss7"
+            WaitForAllDead          "box7"
+			TotalCount              3
+			MaxActive               1
+			SpawnCount              1
+			WaitBeforeStarting      0
+			WaitBetweenSpawns       0
+			TotalCurrency           100
+			
+			TFBot
+			{
+				Template            T_TFBot_Giant_Soldier_RocketPush
+			}
+		}
+
+        WaveSpawn
+		{					
+			Where                   spawnbot
+            WaitForAllDead          "box7"
+			TotalCount              60
+			MaxActive               12
+			SpawnCount              4
+			WaitBeforeStarting      0
+			WaitBetweenSpawns       5
+			TotalCurrency           100
+			
+			Support 1
+			
+			TFBot
+			{
+				Class               Scout
+                Skill               Normal
+			}
+		}
+
+        WaveSpawn
+		{					
+			Where                   spawnbot
+            WaitForAllDead          "box7"
+			TotalCount              10
+			MaxActive               2
+			SpawnCount              1
+			WaitBeforeStarting      10
+			WaitBetweenSpawns       6
+			TotalCurrency           100
+			
+			Support 1
+			
+			TFBot
+			{
+				Class               Soldier
+                Skill               Expert
+                ClassIcon           soldier_directhit_lite
+                Item                "The Direct Hit"
+			}
+		}
+
+        WaveSpawn
+		{					
+			Where                   spawnbot_flank
+            WaitForAllDead          "beforeboss7"
+			TotalCount              3
+			MaxActive               1
+			SpawnCount              1
+			WaitBeforeStarting      0
+			WaitBetweenSpawns       0
+			TotalCurrency           100
+			
+			TFBot
+			{
+				Template            T_TFBot_Giant_Soldier
+                Item                "The Air Strike"
+                ClassIcon           soldier_airstrike_lite
+                Attributes          AlwaysCrit
+                Health              30000
+                Attributes          UseBossHealthBar
+			    Attributes          HoldFireUntilFullReload
+                ItemAttributes
+                {
+                    "faster reload rate" 0.4
+				    "fire rate bonus" 0.2
+				    "clip size upgrade atomic" -3
+                }
+			}
+		}
+    }
 }
