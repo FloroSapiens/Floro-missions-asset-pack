@@ -820,7 +820,7 @@ Wave // WAVE 4
 			
 			TFBot
 			{
-				Template T_TFBot_Engineer_Sentry_Tele_Battle
+				Template T_TFBot_Engineer_Sentry_Battle
 				TeleportWhere spawnbot_invasion
 			}
 		}
@@ -961,7 +961,7 @@ Wave // WAVE 4
 			TotalCount 16
 			MaxActive 16
 			SpawnCount 1
-			WaitBeforeStarting 20
+			WaitBeforeStarting 16
 			WaitBetweenSpawns 0.5
 			TotalCurrency 80
 
@@ -969,6 +969,112 @@ Wave // WAVE 4
 			{
 				Class Heavy
 				Skill Normal
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5b_gdemos
+			WaitForAllSpawned wave5a_thegiantbait
+			Where spawnbot
+			TotalCount 3
+			MaxActive 2
+			SpawnCount 1
+			WaitBeforeStarting 16
+			WaitBetweenSpawns 16
+			TotalCurrency 90
+
+			TFBot
+			{
+				Template T_TFBot_Giant_Demoman
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5b_persians
+			WaitForAllSpawned wave5a_thegiantbait
+			Where spawnbot
+			TotalCount 30
+			MaxActive 12
+			SpawnCount 3
+			WaitBeforeStarting 16
+			WaitBetweenSpawns 4
+			TotalCurrency 60
+
+			TFBot
+			{
+				Class Demoman
+				ClassIcon demo_persian
+				Name "Persian Demoknight"
+				Skill Hard
+				WeaponRestrictions MeleeOnly
+
+				Item "Sultan's Ceremonial"
+				Item "Ali Baba's Wee Booties"
+				Item "The Splendid Screen"
+				Item "The Persian Persuader"
+
+				ItemAttributes
+				{
+					ItemName "The Splendid Screen"
+					"Attack not cancel charge" 1
+				}
+				CharacterAttributes
+				{
+					"critboost on kill" 3
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5c_grapids
+			WaitForAllSpawned wave5b_gdemos
+			Where spawnbot_left
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 16
+			WaitBetweenSpawns 0
+			TotalCurrency 35
+
+			TFBot
+			{
+				Template T_TFBot_Giant_Soldier_Spammer
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5c_grapids
+			WaitForAllSpawned wave5b_gdemos
+			Where spawnbot_right
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 16
+			WaitBetweenSpawns 0
+			TotalCurrency 35
+
+			TFBot
+			{
+				Template T_TFBot_Giant_Soldier_Spammer
+			}
+		}
+		WaveSpawn
+		{
+			Name wave5c_ohmyshotgun
+			WaitForAllSpawned wave5b_gdemos
+			Where spawnbot_invasion
+			Support 1
+			RandomSpawn 1
+			TotalCount 18
+			MaxActive 12
+			SpawnCount 6
+			WaitBeforeStarting 16
+			WaitBetweenSpawns 6
+			TotalCurrency 90
+
+			TFBot
+			{
+				Template T_TFBot_Heavyweapons_Shotgun
 			}
 		}
 	}
