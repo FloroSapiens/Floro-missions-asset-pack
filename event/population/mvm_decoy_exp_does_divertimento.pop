@@ -971,59 +971,6 @@ Wave // WAVE 4
 				Skill Normal
 			}
 		}
-		WaveSpawn
-		{
-			Name wave5b_additionaltrolling
-			WaitForAllSpawned wave5a_thehook
-			Where spawnbot
-			TotalCount 16
-			MaxActive 4
-			SpawnCount 2
-			WaitBeforeStarting 6
-			WaitBetweenSpawns 6
-			TotalCurrency 160
-
-			TFBot
-			{
-				Template T_TFBot_Demoman_Samurai
-			}
-		}
-		WaveSpawn
-		{
-			Name wave5b_them
-			WaitForAllSpawned wave5a_thehook
-			Where spawnbot
-			TotalCount 4
-			MaxActive 2
-			SpawnCount 1
-			WaitBeforeStarting 10
-			WaitBetweenSpawns 6
-			TotalCurrency 200
-
-			TFBot
-			{
-				Template T_TFBot_Giant_Pyro
-			}
-		}
-		WaveSpawn
-		{
-			Name wave5b_shotgunners
-			WaitForAllSpawned wave5a_thehook
-			Where spawnbot_invasion
-			Support 1
-			TotalCount 30
-			MaxActive 4
-			SpawnCount 2
-			WaitBeforeStarting 6
-			WaitBetweenSpawns 2
-			TotalCurrency 60
-
-			TFBot
-			{
-				Template T_TFBot_Heavyweapons_Shotgun
-				Skill Normal
-			}
-		}
 	}
 }
 	
