@@ -1034,7 +1034,7 @@ Wave // WAVE 4
 			SpawnCount 1
 			WaitBeforeStarting 16
 			WaitBetweenSpawns 0
-			TotalCurrency 35
+			TotalCurrency 90
 
 			TFBot
 			{
@@ -1051,7 +1051,7 @@ Wave // WAVE 4
 			SpawnCount 1
 			WaitBeforeStarting 16
 			WaitBetweenSpawns 0
-			TotalCurrency 35
+			TotalCurrency 90
 
 			TFBot
 			{
