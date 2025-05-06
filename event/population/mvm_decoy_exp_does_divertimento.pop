@@ -1314,14 +1314,14 @@ Wave // WAVE 4
 				Skill Normal
 				Health 35000
 				WeaponRestrictions PrimaryOnly
-				Item "Sydney Sleeper"
+				Item "The Sydney Sleeper"
 				Item "Darwin's Danger Shield"
 				Item "Ol' Snaggletooth"
 				Attributes MiniBoss
 				Attributes UseBossHealthBar
 				ItemAttributes
 				{
-					ItemName "Sydney Sleeper"
+					ItemName "The Sydney Sleeper"
 					"damage bonus" 6
 					"faster reload rate" 2
 					"damage causes airblast" 1
@@ -1463,6 +1463,51 @@ Wave // WAVE 4
 				Tag flank_left
 				ClassIcon sniper_kukri
 				Attributes AlwaysCrit
+			}
+		}
+	}
+
+	Wave // WAVE 6
+    {
+	    StartWaveOutput
+		{
+			Target wave_start_relay
+			Action Trigger
+	    }
+	    DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+
+		WaveSpawn
+		{
+			Where spawnbot
+			TotalCount 1
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 0
+			TotalCurrency 200
+
+			TFBot
+			{
+				Template T_TFBot_Giant_Soldier_RocketShotgun
+				Name "The Shield"
+				ClassIcon soldier_tankbuster_giant
+				Health 25000
+				Item "The Grenadier's Softcap"
+				Item "The Battalion's Backup"
+				CharacterAttributes
+				{
+					"move speed bonus"	0.4
+					"damage force reduction" 0.3
+					"airblast vulnerability multiplier" 0.4
+					"airblast vertical vulnerability multiplier" 0.1
+					"rage giving scale"	0.9
+					"override footstep sound set" 2
+					"increase buff duration" 3600
+				}
 			}
 		}
 	}
