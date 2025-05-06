@@ -1002,7 +1002,7 @@ Wave // WAVE 4
 			TFBot
 			{
 				Class Demoman
-				ClassIcon demo_persian
+				ClassIcon demoknight_persian_nys
 				Name "Persian Demoknight"
 				Skill Hard
 				WeaponRestrictions MeleeOnly
