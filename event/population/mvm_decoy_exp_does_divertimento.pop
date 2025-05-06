@@ -875,7 +875,6 @@ Wave // WAVE 4
 		WaveSpawn
 		{
 			Name wave4preboss_iamspeed2
-			Name wave4preboss_sentrygoingup
 			Where spawnbot
 			Support 1
 			TotalCount 30
@@ -968,7 +967,7 @@ Wave // WAVE 4
 			TFBot
 			{
 				Class Heavy
-				Skill Normal
+				Skill Easy
 			}
 		}
 		WaveSpawn
@@ -1028,7 +1027,7 @@ Wave // WAVE 4
 		{
 			Name wave5c_grapids
 			WaitForAllSpawned wave5b_gdemos
-			Where spawnbot_left
+			Where spawnbot
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
@@ -1045,7 +1044,7 @@ Wave // WAVE 4
 		{
 			Name wave5c_grapids
 			WaitForAllSpawned wave5b_gdemos
-			Where spawnbot_right
+			Where spawnbot
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
