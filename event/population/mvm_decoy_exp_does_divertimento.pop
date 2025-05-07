@@ -1310,9 +1310,10 @@ Wave // WAVE 4
 				Class Sniper
 				Name "The Spear"
 				ClassIcon sniper_croc_nys
-				Skill Normal
+				Skill Hard
 				Health 35000
 				WeaponRestrictions PrimaryOnly
+				Attributes AlwaysFireWeapon
 				Item "The Sydney Sleeper"
 				Item "Darwin's Danger Shield"
 				Item "Ol' Snaggletooth"
@@ -1492,6 +1493,8 @@ Wave // WAVE 4
 			TFBot
 			{
 				Template T_TFBot_Giant_Soldier_RocketShotgun
+				Attributes SpawnWithFullCharge
+				Attributes UseBossHealthBar
 				Name "The Shield"
 				ClassIcon soldier_tankbuster_giant
 				Health 25000
