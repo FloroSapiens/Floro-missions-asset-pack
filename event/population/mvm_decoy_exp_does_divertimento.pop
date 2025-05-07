@@ -586,7 +586,7 @@ WaveSchedule
 		{
 			Name wave03a_conchsoldiers
 			Where spawnbot
-			TotalCount 30
+			TotalCount 24
 			MaxActive 9
 			SpawnCount 6
 			WaitBeforeStarting 0
@@ -774,7 +774,7 @@ Wave // WAVE 4
 			TFBot
 			{
 				Class Scout
-				Skill Normal
+				Skill Easy
 			}
 		}
 		WaveSpawn
@@ -784,9 +784,9 @@ Wave // WAVE 4
 			Where spawnbot_right
 			Randomspawn 1
 			Support Limited
-			TotalCount 16
-			MaxActive 16
-			SpawnCount 8
+			TotalCount 12
+			MaxActive 12
+			SpawnCount 6
 			WaitBeforeStarting 12
 			WaitBetweenSpawns 8
 			TotalCurrency 200
@@ -832,7 +832,7 @@ Wave // WAVE 4
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
-			WaitBeforeStarting 10
+			WaitBeforeStarting 7.5
 			TotalCurrency 350
 
 			FirstSpawnWarningSound "vo/mvm/mght/heavy_mvm_m_specialweapon01.mp3"
@@ -887,7 +887,7 @@ Wave // WAVE 4
 			TFBot
 			{
 				Class Scout
-				Skill Normal
+				Skill Easy
 			}
 		}
 	}
@@ -1343,6 +1343,7 @@ Wave // WAVE 4
 			Name "spies6"
 			WaitForAllSpawned "heaviestop"
 			Where spawnbot_mission_spy
+			Support Limited
 			TotalCount 30
 			MaxActive 8
 			SpawnCount 2
