@@ -5,25 +5,26 @@
 
 //
 //
-// Starting Currency: 850
+//
+// Starting Currency: 650
 //
 // +----------+----------+----------+
 // | Wave     | Currency | A+       |
 // +----------+----------+----------+
 // | Wave 1   | 650      | 750      |
-// | Wave 2   | 700      | 800      |
+// | Wave 2   | 800      | 900      |
 // | Wave 3   | 800      | 900      |
-// | Wave 4   | 800      | 900      |
+// | Wave 4   | 850      | 950      |
 // | Wave 5   | 900      | 1000     |
-// | Wave 6   | 1100     | 1200     |
+// | Wave 6   | 1300     | 1400     |
 // +----------+----------+----------+
-// | Total    | 4950     | 5550     |
+// | Total    | 5300     | 5900     |
 // +----------+----------+----------+
-//
+//u see i use vscode vdf # not sponsered by revan :revan:
 //
 WaveSchedule
 {
-    StartingCurrency                    850
+    StartingCurrency                    650
     RespawnWaveTime                     2
     CanBotsAttackWhileInSpawnRoom       no
     Advanced                            1
@@ -108,15 +109,35 @@ WaveSchedule
             }
         }
     }
+    Mission
+    {
+        Objective               Sniper
+        InitialCooldown         35
+        Where                   spawnbot_mission_sniper
+        BeginAtWave             6
+        RunForThisManyWaves     1
+        CooldownTime            20
+        DesiredCount            2
 
+        TFBot
+        {
+            Template    T_TFBot_Sniper
+            Skill       Hard
+
+            CharacterAttributes
+            {
+                "damage bonus"      0.5
+            }
+        }
+    }
     Mission
     {
         Objective               Spy
         InitialCooldown         30
         Where                   spawnbot_mission_spy
-        BeginAtWave             4
-        RunForThisManyWaves     2
-        CooldownTime            35
+        BeginAtWave             5
+        RunForThisManyWaves     1
+        CooldownTime            25
         DesiredCount            2
 
         TFBot
@@ -134,7 +155,7 @@ WaveSchedule
         Where                   spawnbot_mission_spy
         BeginAtWave             6
         RunForThisManyWaves     1
-        CooldownTime            30
+        CooldownTime            25
         DesiredCount            2
 
         TFBot
@@ -185,25 +206,6 @@ WaveSchedule
         }
     }
 
-    Mission
-    {
-        Objective               Engineer
-        InitialCooldown         25
-        Where                   spawnbot
-        BeginAtWave             6
-        RunForThisManyWaves     1
-        CooldownTime            10
-        DesiredCount            2
-
-        TFBot
-        {
-            Template            T_TFBot_Engineer_Sentry_Teleporter
-            TeleportWhere       spawnbot
-            TeleportWhere       flankers
-            Attributes          TeleportToHint
-            Health              600
-        }
-    }
 
     Wave
     {
@@ -251,9 +253,9 @@ WaveSchedule
             Where                   spawnbot
             TotalCount              18
             MaxActive               6
-            SpawnCount              6
+            SpawnCount              3
             TotalCurrency           100
-            WaitBetweenSpawns       10
+            WaitBetweenSpawns       2.5
 
             TFBot
             {
@@ -267,11 +269,11 @@ WaveSchedule
             Name                    1-B
             WaitForAllSpawned       1-Ab
             Where                   flankers
-            TotalCount              16
-            MaxActive               8
-            SpawnCount              4
+            TotalCount              12
+            MaxActive               6
+            SpawnCount              3
             TotalCurrency           100
-            WaitBetweenSpawns       7.5
+            WaitBetweenSpawns       5.5
 
             TFBot
             {
@@ -289,7 +291,7 @@ WaveSchedule
             SpawnCount              4
             TotalCurrency           100
             WaitForAllSpawned       1-Ab
-            WaitBetweenSpawns       7.5
+            WaitBetweenSpawns       4.5
 
             TFBot
             {
@@ -306,7 +308,7 @@ WaveSchedule
             SpawnCount              4
             TotalCurrency           150
             WaitForAllSpawned       1-Ab
-            WaitBetweenSpawns       7.5
+            WaitBetweenSpawns       6.5
 
             Squad
             {
@@ -330,7 +332,7 @@ WaveSchedule
         }
     }
 
-    Wave	// 1
+    Wave        
     {
         StartWaveOutput
         {
@@ -352,17 +354,16 @@ WaveSchedule
             Where                   flankers
             WaitBeforeStarting      5.5
             TotalCount              12
-            MaxActive               4
-            SpawnCount              4
+            MaxActive               6
+            SpawnCount              3
             TotalCurrency           50
-            WaitBetweenSpawns       5
+            WaitBetweenSpawns       3
 
-            RandomChoice
+            Squad
             {
                 TFBot
                 {
                     Template        T_TFBot_Pyro
-                    Attributes      AlwaysFireWeapon
                 }
 
                 TFBot
@@ -370,11 +371,10 @@ WaveSchedule
                     Class       Heavyweapons
                     Skill       Easy
                 }
-
                 TFBot
                 {
-                    Template        T_TFBot_Pyro
-                    Attributes      AlwaysFireWeapon
+                    Class       Heavyweapons
+                    Skill       Easy
                 }
             }
         }
@@ -383,18 +383,18 @@ WaveSchedule
         {
             Name                    1-A
             Where                   spawnbot
-            TotalCount              16
-            MaxActive               8
-            SpawnCount              4
+            TotalCount              12
+            MaxActive               6
+            SpawnCount              3
             TotalCurrency           50
-            WaitBetweenSpawns       5
+            WaitBetweenSpawns       3
 
-            RandomChoice
+            Squad
             {
                 TFBot
                 {
                     Template        T_TFBot_Pyro
-                    Attributes      AlwaysFireWeapon
+                    Skill           Easy
                 }
 
                 TFBot
@@ -420,7 +420,7 @@ WaveSchedule
             SpawnCount              3
             TotalCurrency           100
             WaitBeforeStarting      5
-            WaitBetweenSpawns       45
+            WaitBetweenSpawns       30
 
             Squad
             {
@@ -497,7 +497,7 @@ WaveSchedule
                     {
                         ItemName                                "The Flare Gun"
                         "projectile spread angle penalty"       6.0
-                        "Projectile speed decreased"            0.5
+                        "Projectile speed decreased"            1
                         "clip size upgrade atomic"              50.0
                         "fire rate bonus"                       0.08
                     }
@@ -549,7 +549,7 @@ WaveSchedule
             Name                    2-C
             Where                   flankers
             WaitForAllSpawned       1-Ba
-            WaitBeforeStarting      15
+            WaitBeforeStarting      5
             TotalCount              6
             MaxActive               6
             SpawnCount              3
@@ -604,7 +604,35 @@ WaveSchedule
                 }
             }
         }
+        WaveSpawn
+        {
+            Name                    3-B
+            WaitForAllSpawned       2-C
+            Where                   spawnbot
+            TotalCount              3
+            MaxActive               3
+            SpawnCount              3
+            WaitBeforeStarting      25
+            TotalCurrency           100
 
+            Squad
+            {
+                TFBot
+                {
+                    Template    T_TFBot_Heavyweapons_Heater
+                }
+
+                TFBot
+                {
+                    Template    T_TFBot_Medic
+                }
+
+                TFBot
+                {
+                    Template    T_TFBot_Medic
+                }
+            }
+        }
         WaveSpawn
         {
             Name                    3-A
@@ -620,7 +648,7 @@ WaveSchedule
             TFBot
             {
                 Class       Soldier
-                Skill       Easy
+                Skill       Normal
             }
         }
     }
@@ -788,7 +816,7 @@ WaveSchedule
         {
             Name                    2-AWANK2
             WaitForAllSpawned       2-AWANK
-            WaitBeforeStarting      20
+            WaitBeforeStarting      18
             TotalCount              1
             TotalCurrency           150
 
@@ -803,7 +831,7 @@ WaveSchedule
                 Health                      12500
                 Speed                       75
                 Name                        TankBossB
-                StartingPathTrackNode       tank_path_a_10
+                StartingPathTrackNode       tank_path_b_10
 
                 OnKilledOutput
                 {
@@ -824,20 +852,33 @@ WaveSchedule
             Name                    1-B
             Where                   flankers
             WaitForAllSpawned       2-AWANK
-            TotalCount              2
-            MaxActive               2
-            SpawnCount              2
+            TotalCount              6
+            MaxActive               6
+            SpawnCount              3
             TotalCurrency           100
             WaitBetweenSpawns       25
             WaitBeforeStarting      10
 
-            TFBot
+            Squad
             {
-                Template        T_TFBot_Giant_Pyro
-                Skill           Expert
-                Attributes      AlwaysCrit
-                Attributes      AlwaysFireWeapon
+                TFBot
+                {
+                   Template        T_TFBot_Giant_Pyro
+                   Skill           Expert
+                  Attributes      AlwaysFireWeapon
+                }
+                TFBot
+                {
+                    Template        T_TFBot_Soldier_Extended_Buff_Banner
+                    Skill           Normal
+                }   
+                TFBot
+                {
+                    Template        T_TFBot_Soldier_Extended_Buff_Banner
+                    Skill           Normal
+                }   
             }
+
         }
 
         WaveSpawn
@@ -1069,12 +1110,12 @@ WaveSchedule
             SpawnCount              6
             TotalCurrency           50
             WaitBetweenSpawns       5.5
-            Support                 Limited
+            WaitBeforeStarting      0.2
 
             TFBot
             {
-                Class       Heavyweapons
-                Skill       Easy
+                Class   Heavyweapons
+                Skill   Easy
             }
         }
 
@@ -1085,9 +1126,9 @@ WaveSchedule
             TotalCount              3
             MaxActive               2
             SpawnCount              1
-            WaitBetweenSpawns       15
+            WaitBetweenSpawns       20
             TotalCurrency           100
-            WaitBeforeStarting      5
+            WaitBeforeStarting      5.2
 
             TFBot
             {
@@ -1133,7 +1174,7 @@ WaveSchedule
             Name                    1-BSupport
             WaitForAllDead          1-A
             Where                   flankers
-            TotalCount              12
+            TotalCount              18
             MaxActive               12
             SpawnCount              6
             TotalCurrency           50
@@ -1141,7 +1182,8 @@ WaveSchedule
 
             TFBot
             {
-                Template    T_TFBot_Soldier_Extended_Buff_Banner
+                Class Soldier
+                Skill   Easy
             }
         }
 
@@ -1160,8 +1202,7 @@ WaveSchedule
             {
                 TFBot
                 {
-                    Template    T_TFBot_Giant_Heavyweapons_Shotgun
-                    Skill Normal
+                    Template    T_TFBot_Giant_Heavyweapons
                 }
 
                 TFBot
@@ -1189,10 +1230,38 @@ WaveSchedule
 
             TFBot
             {
-                Template    T_TFBot_Giant_Soldier_Spammer
+                Template T_TFBot_Giant_Soldier_Spammer
+                ClassIcon soldier_conch_spammer_giant
+                Name "Giant Rapid Fire Conch Soldier"
+                Attributes SpawnWithFullCharge
+                Tag bot_giant
+                Item "The Concheror"
+                ItemAttributes
+                {
+                    ItemName "The Concheror"
+                    "increase buff duration" 9.0
+                }
             }
         }
 
+        WaveSpawn
+        {
+            Name                    1-D-supportsa
+            WaitForAllSpawned       1-C
+            Where                   flankers
+            TotalCount              99
+            MaxActive               8
+            SpawnCount              4
+            TotalCurrency           50
+            WaitBetweenSpawns       9.5
+            Support                 Limited
+
+            TFBot
+            {
+                Template    T_TFBot_Demoman
+                Skill Normal
+            }
+        }
         WaveSpawn
         {
             Name                    1-D-supports
@@ -1521,12 +1590,36 @@ WaveSchedule
         }
         WaitWhenDone    65
         Checkpoint      Yes
+        WaveSpawn
+        {
+            Name                    stupudass
+            Where                   spawnbot
+            TotalCount              1
+            MaxActive               1
+            SpawnCount              1
+            TotalCurrency           50
+			FirstSpawnWarningSound	heavy_mvm_domination16.mp3
+            
 
+            TFBot
+            {
+                Template    T_TFBot_Heavyweapons_Heavyweight_Champ
+                Name "stupiud"
+                Item "Ghastly Gibus"
+                ItemAttributes
+                {
+                    ItemName "Ghastly Gibus"
+                    "set item tint RGB" 2452877
+                }
+            }
+        }
         WaveSpawn
         {
             Name                WANKING
             TotalCount          1
-            TotalCurrency       150
+            TotalCurrency       100
+            WaitBeforeStarting  10
+            WaitForAllDead      stupudass
 
             FirstSpawnOutput
             {
@@ -1561,8 +1654,9 @@ WaveSchedule
             TotalCount              2
             SpawnCount              1
             WaitBetweenSpawns       17.5
-            WaitBeforeStarting      10
-            TotalCurrency           150
+            WaitBeforeStarting      20
+            TotalCurrency           100
+            WaitForAllDead      stupudass
 
             FirstSpawnOutput
             {
@@ -1590,15 +1684,16 @@ WaveSchedule
                 }
             }
         }
+
         WaveSpawn
         {
             Name                    WANKING3
-            TotalCount              3
+            TotalCount              2
             SpawnCount              1
             WaitBetweenSpawns       17.5
             WaitForAllSpawned       WANKING2
-            WaitBeforeStarting      10
-            TotalCurrency           150
+            WaitBeforeStarting      30
+            TotalCurrency           100
 
             FirstSpawnOutput
             {
@@ -1608,7 +1703,7 @@ WaveSchedule
 
             Tank
             {
-                Health                      12500
+                Health                      17500
                 Speed                       75
                 Name                        TankBossB
                 StartingPathTrackNode       tank_path_b_10
@@ -1630,54 +1725,79 @@ WaveSchedule
         {
             Name                    1-A
             Where                   spawnbot
-            TotalCount              3
-            MaxActive               3
-            SpawnCount              1
+            TotalCount              9
+            MaxActive               9
+            SpawnCount              3
             TotalCurrency           100
-            WaitBetweenSpawns       25
+            WaitBetweenSpawns       20
+            WaitForAllDead      stupudass
 
-            TFBot
-            {
-                Template        T_TFBot_Giant_Pyro
-                Attributes      AlwaysCrit
-                Skill           Expert
-            }
+                TFBot
+                {
+                    Template        T_TFBot_Giant_Scout_Fast
+                }
+
         }
 
         WaveSpawn
         {
             Name                    1-A2
             Where                   flankers
-            TotalCount              4
-            MaxActive               4
-            SpawnCount              1
+            TotalCount              9
+            MaxActive               9
+            SpawnCount              3
             TotalCurrency           100
-            WaitBeforeStarting      10
-            WaitBetweenSpawns       25
+            WaitBeforeStarting      5
+            WaitBetweenSpawns       20
+            WaitForAllDead      stupudass
 
-            TFBot
+            Squad
             {
-                Template        T_TFBot_Giant_Demo_Burst              
+                TFBot
+                {
+                    Template        T_TFBot_Giant_Soldier_Spammer    
+                }
+                TFBot
+                {
+                    Template        T_TFBot_Medic
+                }
+                TFBot
+                {
+                    Template        T_TFBot_Medic
+                }
             }
+
         }
 
         WaveSpawn
         {
             Name                    1-ASupport
-            Where                   spawnbot
-            TotalCount              20
-            MaxActive               8
-            SpawnCount              4
-            TotalCurrency           100
-            WaitBetweenSpawns       20
+            Where                   flankers
+            TotalCount              99
+            MaxActive               1
+            SpawnCount              1
+            TotalCurrency           50
+            WaitForAllDead      stupudass
 
-            TFBot
-            {
-                Template        T_TFBot_Pyro
-                Skill           Expert
-                Attributes      AlwaysCrit
-                Attributes      AlwaysFireWeapon
-            }
+            Support Limited
+
+			TFBot
+			{
+				Class Pyro
+				Skill Expert
+				Name "Hyper Crit Pyro"
+                ClassIcon       "pyro_hyper_lite"
+				Attributes AlwaysCrit
+				ItemAttributes 
+				{
+					ItemName "TF_WEAPON_FLAMETHROWER"
+					"damage bonus"	2.0
+				}
+				CharacterAttributes
+				{
+					"move speed bonus"	1.5
+				}
+			}
         }
 
         WaveSpawn
@@ -1688,12 +1808,13 @@ WaveSchedule
             MaxActive               9
             SpawnCount              3
             TotalCurrency           100
-            WaitBetweenSpawns       15
+            WaitBetweenSpawns       10
+            WaitForAllDead      stupudass
 
             TFBot
             {
                 Class       Heavy
-                Skill       Easy
+                Skill       Normal
             }
         }
 
@@ -1701,58 +1822,95 @@ WaveSchedule
         {
             Name                    1-B
             Where                   spawnbot
-            TotalCount              4
-            MaxActive               4
+            TotalCount              6
+            MaxActive               2
             SpawnCount              2
             TotalCurrency           100
             WaitBeforeStarting      35
             WaitBetweenSpawns       25
+            WaitForAllDead      stupudass
 
-            TFBot
+            Squad
             {
-                Template    T_TFBot_Giant_Heavyweapons_HealOnKill
+                TFBot
+                {
+                    Template    T_TFBot_Giant_Heavyweapons_Deflector
+                }
+                TFBot
+                {
+                    Template    T_TFBot_Giant_Medic
+                }
             }
+
         }
+
 
         WaveSpawn
         {
-            Name                    1-BSupport2
+            Name                    1-BSupport3
             Where                   spawnbot
-            WaitBeforeStarting      30
             TotalCount              99
             MaxActive               9
             SpawnCount              3
             TotalCurrency           100
             WaitBetweenSpawns       15
             Support                 Limited
+            WaitForAllDead      stupudass
 
             TFBot
             {
-                Template    T_TFBot_Soldier_RocketShotgun
+                Template    T_TFBot_Scout_Fish
+                ClassIcon   scout_fish_nys
+                Attributes  AlwaysCrit
             }
         }
-
-        WaveSpawn	// epic botbash refferneve
+        WaveSpawn
         {
             Where                   spawnbot
             WaitBeforeStarting      5
             TotalCount              50
-            MaxActive               12
-            SpawnCount              2
-            WaitBetweenSpawns       12
+            MaxActive               4
+            SpawnCount              4
+            WaitBetweenSpawns       5
             TotalCurrency           200
             Support                 1
+            WaitForAllDead      stupudass
 
             RandomChoice
             {
                 TFBot
                 {
-                    Template    T_TFBot_Medic
+                    Template    T_TFBot_Soldier_Buff_Banner
                 }
 
                 TFBot
                 {
-                    Template    T_TFBot_Medic_QuickFix
+                    Template    T_TFBot_Soldier_Extended_Concheror
+                }
+            }
+        }
+        WaveSpawn
+        {
+            Where                   flankers
+            WaitBeforeStarting      5
+            TotalCount              50
+            MaxActive               4
+            SpawnCount              4
+            WaitBetweenSpawns       6
+            TotalCurrency           200
+            Support                 1
+            WaitForAllDead      stupudass
+
+            RandomChoice
+            {
+                TFBot
+                {
+                    Template    T_TFBot_Soldier_Buff_Banner
+                }
+
+                TFBot
+                {
+                    Template    T_TFBot_Soldier_Extended_Concheror
                 }
             }
         }
